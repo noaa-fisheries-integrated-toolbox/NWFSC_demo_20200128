@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky_diff.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<H2>NOAA Fisheries Integrated Toolbox</H2>
+					<p>Corinne Bassin, Christine Stawitz</p>
+					<p>ECS Federal in support of NOAA Fisheries S&T</p>
+				</section>
+				<section>
+					<h3>Toolbox Overview</h3>
+					<section>
+					<p>The<a href="https://noaa-fisheries-integrated-toolbox.github.io/"> NOAA Fisheries Integrated Toolbox </a>(NOAA FIT) is an interdisciplinary, web-based portal of operational tools that can be used for a variety of applications, including stock assessment modeling, forecasting, and data preparation for fish and protected species, as well as economic and ecosystem modeling.</p>
+					</section><section>
+					<h5>Goals</h5>
+					<ul>
+						<li>Sharing and communication across regions</li>
+						<li>Tool comparison, benchmarking, and testing</li>
+						<li>Support for tool developers and users</li>
+						<li>Platform infrastructure (shared interfaces, ensembles)</li>
+					</ul>
+				</section>
+				</section>
+				<section>
+					<h3>Steps</h3>
+					<section>
+					<h4>Forming the architecture (onboarding)</h4>
+					<ul>
+						
+							<li>Getting the tools in one place</li>
+							<li>Enforcing good coding practices</li>
+							<li>Making tools usable and sustainable</li>
+							</li></ul>
+						</section><section>
+						<h4>Building on the foundation</h4>
+						<ul>
+							<li>Input/output standardization</li>
+							<li>Ensemble modeling framework</li>
+							<li>User interface and visualization tools</li>
+							<li>Cloud computing</li></ul>
+						</section><section>
+						<h4>Continuous support</h4>
+						<ul>	
+							<li>Supporting users and developers</li>
+							<li>Domain-specific validation</li>
+							<li>Versioning and releases</li>
+					</ul>
+				</section>
+				</section>
+				<section> 
+					<p> Caveat: we are a team of three people, and the UI is still a work in progress</p>
+				</section>
+				<section>
+
+					<h3>Forming the architecture</h3>
+					<section>
+
+					<ul><li>What is included?</li>
+
+						<li> Metadata form about tool</li>
+						<li> Version control (git)</li>
+						<li> NOAA Github policy</li>
+						<li> Code review </li>
+						<li>..and more</li>
+					</ul>
+
+					</section>
+					<section>
+						<h5>Tools to include</h5>
+						<p>We seek to be inclusive; tools that are of use in NOAA products are our primary focus. There must be at least one tool owner we can work with to implement version control, etc. We recommend including the latest stable version in the toolbox. Research and development can continue elsewhere on new tool features.</p>
+					</section>
+										<section>
+						<h5>Metadata Form</h5>
+						<p>Initial authors of a tool fill out a meta-data <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9mjjaU3qLCWLIzpwdPqVed2gPCHtoOcfrGgtSgr1RiAVBuw/viewform"> form</a> about their tool which includes background informtation that can be made public on the tools landing page.</p>
+
+					</section>
+					<section>
+						<h5>Version Control Implementation</h5>
+						<p>All code needs to be under version control, locally and on a server.  Basic information about version control and <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/best-practices/best-practices-version-control/">best practices</a>  for the toolbox are available.</p>
+
+					</section>
+					<section>
+						<h5>NOAA GitHub Policy</h5>
+						<p>NOAA has specific guidelines that cover the use of GitHub for <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/onboarding/version-control/">version control</a> . We can fork from existing Git repos, create Git repos from Vlab, or help you set up git. Only NOAA affiliated personal will be able to directly push to an NOAA GitHub repository but the code is publicly available. Outside collaborators will be able to suggest changes and perform a pull-request to have their changes accepted. </p>
+
+					</section>
+					<section>
+						<h5>Code review</h5>
+						<p>After these steps have been completed, the toolbox team will review your git repository and file issues about specific items that need to be resolved for inclusion in the toolbox.</p>
+					</section>
+				</section>
+				<section>
+				<h3>Initial Process Completed</h3>
+
+				<p><font color="#0093D0" >Link to tool:</font> The tool receives a landing page and link on the toolbox website</p>
+				<p><font color="#0093D0" >Basic support level determined :</font>
+				Depending on the collaborators affiliations and development state of the tool, each tool recieves differing levels of support from the NOAA National Modeling Team. </p>
+				</section>
+					<section>
+						<h3>Building on the foundation</h3>
+						<section><h5>Input/output standardization</h5>
+							<p>When tools are all shared and under version control, we can more easily work with individual tool developers to standardize and simplify.
+							</p>
+							<p>
+							Example: lookup table for stock assessment model names; automate writes to SIS
+							</p>
+						</section>
+						<section><h5>Ensemble modeling framework</h5>
+							<p>
+								Standard formats for inputs and outputs make it easier to average model results. Instead of custom code, pulling results from multiple output files with consistent formatting makes it easy to add to ensembles.
+							</p>
+						</section>
+						<section><h5>User interface and visualization tools</h5>
+						<p>Common inputs will also allow us to develop common user interfaces that write model inputs. Standard output files make it easier to visualize output and generate reports. 
+						</p> 
+
+						<p>Example: A standard package for plotting stock assessment output; creating new web-based UI for legacy desktop applications.</p>
+					</section>
+
+						<section><h5>Cloud and high performance computing</h5>
+							<ul>
+								<li>Increasing reproducibility (<a href="https://mybinder.org/">binder</a>, the <a href="http://ices.dk/marine-data/assessment-tools/Pages/transparent-assessment-framework.aspx">TAF</a>)
+								</li>
+								<li>Running models in the cloud via Azure, AWS
+								</li>
+							</ul>
+						</section>
+					</section><section>
+					
+					<h3>Continuous support</h3>
+					<section><h5>Supporting users and developers</h5>
+						<p>Management by FIT reduces the burden on tool developers since we can monitor issues and help support users.</p>
+
+						<p>We're also working on support <a href="https://noaa-fisheries-integrated-toolbox.github.io/resources/">blog</a> and trainings (at NSAW) to teach about git, software best practices, etc.</p>
+					</section>
+					<section><h5>Domain-specific validation</h5>
+					<em>How do we ensure tools are not just functional but scientifically accurate?
+					</em>
+						<p>Software peer review a.la rOpenSci?</p>
+						<p>Steering committee, or leverage existing committees</p>
+				</section>
+							<section><h5>Versioning and releases</h5>
+								<p> The toolbox uses <a href="https://shields.io/category/version">badges</a> to communicate the most up-to-date versions of tools. We can also monitor the Github repositories of tools and encourage splitting into versions during the code review process. (e.g. GMACs)
+							</p></section>
+						</section>
+							<section><h5>
+							Contact</h5>
+							<ul><li> Corinne Bassin: corinne.bassin@noaa.gov
+								
+							</li>
+							<li>Christine Stawitz: christine.stawitz@noaa.gov
+							</li><ul>
+							</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
